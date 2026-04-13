@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Текстиль для Гостиниц — Каталог</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">
+            <img src="./src/logo.jpeg" alt="logo" width="50">
+        </div>
+        <div>
+          <h1>Текстиль для Гостиниц</h1>
+          <p class="tagline">Уют, качество и долговечность для вашего отеля</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="search-wrap">
+          <input id="searchInput" type="search" placeholder="Поиск: название, материал, цвет..." />
+        </div>
+        <div class="cart-fav">
+          <button id="favBtn" class="icon-btn" title="Избранное">❤ <span id="favCount" class="badge">0</span></button>
+          <button id="cartBtn" class="icon-btn" title="Корзина">🧺 <span id="cartCount" class="badge">0</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <aside class="filters">
+      <div class="filters-card">
+        <h3>Фильтры</h3>
+
+        <div class="filter-group">
+          <label class="filter-label">Категория</label>
+          <div id="categoryFilters" class="chips"></div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Материал</label>
+          <div id="materialFilters" class="chips"></div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Цвет</label>
+          <div id="colorFilters" class="color-swatches"></div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Цена</label>
+          <div class="price-range">
+            <input id="priceMin" type="number" min="0" step="1" />
+            <span>—</span>
+            <input id="priceMax" type="number" min="0" step="1" />
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Класс отеля</label>
+          <select id="gradeFilter">
+            <option value="">Любой</option>
+            <option value="3">3 звезды</option>
+            <option value="4">4 звезды</option>
+            <option value="5">5 звезд</option>
+          </select>
+        </div>
+
+        <div class="filter-actions">
+          <button id="clearFilters" class="btn ghost">Сбросить</button>
+          <button id="applyFilters" class="btn primary">Применить</button>
+        </div>
+      </div>
+
+      <div class="filters-card about">
+        <h4>Почему мы</h4>
+        <ul>
+          <li>Износостойкие ткани</li>
+          <li>Сертифицированное производство</li>
+          <li>Быстрая поставка и сервис</li>
+        </ul>
+      </div>
+    </aside>
+
+    <section class="catalog">
+      <div class="catalog-top">
+        <div class="catalog-info">
+          <p id="resultsInfo">Показаны все товары</p>
+        </div>
+
+        <div class="catalog-controls">
+          <label class="small">Сортировать</label>
+          <select id="sortSelect">
+            <option value="featured">Рекомендуем</option>
+            <option value="price-asc">Цена: по возрастанию</option>
+            <option value="price-desc">Цена: по убыванию</option>
+            <option value="rating-desc">Рейтинг</option>
+            <option value="name-asc">Название A–Я</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="productsGrid" class="products-grid"></div>
+
+      <div id="noResults" class="no-results" hidden>
+        <p>Товары не найдены по заданным фильтрам.</p>
+        <button id="resetBtn" class="btn">Показать всё</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Quick view modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="modalClose" class="modal-close" aria-label="Закрыть">✕</button>
+      <div class="modal-content">
+        <div class="modal-image" id="modalImage"></div>
+        <div class="modal-info">
+          <h2 id="modalTitle"></h2>
+          <p id="modalCategory" class="muted"></p>
+          <p id="modalDesc"></p>
+          <ul class="specs">
+            <li><strong>Материал:</strong> <span id="modalMaterial"></span></li>
+            <li><strong>Цвет:</strong> <span id="modalColor"></span></li>
+            <li><strong>Размер:</strong> <span id="modalSize"></span></li>
+            <li><strong>Класс отеля:</strong> <span id="modalGrade"></span></li>
+            <li><strong>Рейтинг:</strong> <span id="modalRating"></span></li>
+          </ul>
+          <div class="modal-actions">
+            <div class="price" id="modalPrice"></div>
+            <div>
+              <button id="addToCart" class="btn primary">Добавить в корзину</button>
+              <button id="toggleFav" class="btn ghost">❤ В избранное</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Текстиль для Гостиниц — Все права защищены</p>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
