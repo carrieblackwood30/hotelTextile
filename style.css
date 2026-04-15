@@ -212,3 +212,54 @@ img, svg {
 
 /* Small visual polish */
 .muted{color:var(--muted)}
+
+.about-us {
+  background: var(--card);
+  padding: 40px 20px;
+  border-bottom: 1px solid rgba(200,180,170,0.12);
+}
+.about-inner {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.about-image img {
+  max-width: 320px;
+  border-radius: 14px;
+  box-shadow: var(--soft-shadow);
+}
+.about-text {
+  flex: 1;
+  min-width: 240px;
+}
+.about-text h2 {
+  margin-top: 0;
+  color: #2b2b2b;
+}
+.about-text p {
+  margin-bottom: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-contacts h4 {
+  margin: 0 0 8px 0;
+  color: #2b2b2b;
+}
+.footer-contacts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-contacts li {
+  margin-bottom: 6px;
+  color: var(--muted);
+}
